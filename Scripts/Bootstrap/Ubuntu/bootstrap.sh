@@ -25,6 +25,6 @@ echo "deb-src http://archive.ubuntu.com/ubuntu bionic main contrib non-free" >> 
 
 #tar the rootfs
 cd $2
-rm -rf ../ubuntu-rootfs.tar.gz
+rm -rf ../ubuntu-rootfs-$1.tar.gz
 rm -rf dev/*
-GZIP=-9 tar -cvzf ../ubuntu-rootfs.tar.gz ./*
+GZIP=-9 tar -cvzf ../ubuntu-rootfs-$1.tar.gz ./*

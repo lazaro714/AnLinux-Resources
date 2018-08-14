@@ -25,6 +25,6 @@ echo "deb-src http://deb.debian.org/debian stretch main contrib non-free" >> $2/
 
 #tar the rootfs
 cd $2
-rm -rf ../debian-rootfs.tar.gz
+rm -rf ../debian-rootfs-$1.tar.gz
 rm -rf dev/*
-GZIP=-9 tar -cvzf ../debian-rootfs.tar.gz ./*
+GZIP=-9 tar -cvzf ../debian-rootfs-$1.tar.gz ./*

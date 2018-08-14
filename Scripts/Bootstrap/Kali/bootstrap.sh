@@ -25,6 +25,6 @@ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> $
 
 #tar the rootfs
 cd $2
-rm -rf ../kali-rootfs.tar.gz
+rm -rf ../kali-rootfs-$1.tar.gz
 rm -rf dev/*
-GZIP=-9 tar -cvzf ../kali-rootfs.tar.gz ./*
+GZIP=-9 tar -cvzf ../kali-rootfs-$1.tar.gz ./*
