@@ -20,8 +20,8 @@ echo "nameserver 8.8.4.4" >> $3/etc/resolv.conf
 
 #sources.list setup
 rm $2/etc/apt/sources.list
-echo "deb http://archive.ubuntu.com/ubuntu bionic main contrib non-free" >> $2/etc/apt/sources.list
-echo "deb-src http://archive.ubuntu.com/ubuntu bionic main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+echo "deb-src http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
 
 #tar the rootfs
 cd $2
