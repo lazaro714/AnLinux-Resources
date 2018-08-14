@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=debian-fs
+folder=ubuntu-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="debian-rootfs.tar.gz"
+tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this make take a while base on your internet speed."
@@ -20,7 +20,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Debian/${archurl}/debian-rootfs.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Ubuntu/${archurl}/ubuntu-rootfs.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -30,7 +30,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p binds
-bin=start-debian.sh
+bin=start-ubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash

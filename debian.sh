@@ -20,7 +20,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Debian/${archurl}/debian-rootfs.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Debian/${archurl}/rootfs.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
