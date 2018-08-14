@@ -1,13 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=debian-stretch-fs
+folder=debian-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="data.tar.gz"
+tarball="debian-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
-		echo "downloading debain-image"
+		echo "Download Rootfs, this make take a while base on your internet speed."
 		case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
@@ -20,19 +20,17 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://github.com/EXALAB/LinuxOnAndroid/raw/master/data.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Debian/${archurl}/rootfs.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
-	echo "decompressing debian image"
-	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
-	echo "fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 1.1.1.1" > etc/resolv.conf
+	echo "Decompressing Rootfs, please be patient."
+	proot --link2symlink tar -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
 mkdir -p binds
-bin=start-debian-stretch.sh
+bin=start-debian.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
