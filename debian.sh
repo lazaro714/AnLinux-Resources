@@ -20,7 +20,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://github.com/EXALAB/LinuxOnAndroid/raw/master/data.rootfs.tar" -O $tarball
+		wget "https://github.com/EXALAB/LinuxOnAndroid/raw/master/data.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
