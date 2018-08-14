@@ -3,10 +3,10 @@
 #Bootstrap the system
 rm -rf $2
 mkdir $2
-if [ "$1" = "i386" ] ; then
-  debootstrap --no-check-gpg --arch i386 --variant=minbase kali-rolling $2 http://http.kali.org/kali
+if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
+  debootstrap --no-check-gpg --arch=$1 --variant=minbase kali-rolling $2 http://http.kali.org/kali
 else
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase stretch $2 http://http.kali.org/kali
+  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase kali-rolling $2 http://http.kali.org/kali
 fi
 
 #Reduce size
