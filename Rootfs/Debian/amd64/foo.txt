@@ -1,1 +1,0 @@
-The rootfs would be available soon
