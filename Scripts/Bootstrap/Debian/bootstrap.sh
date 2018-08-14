@@ -3,8 +3,8 @@
 #Bootstrap the system
 rm -rf $2
 mkdir $2
-if [ "$1" = "i386" ] ; then
-  debootstrap --no-check-gpg --arch i386 --variant=minbase stretch $2 http://deb.debian.org/debian
+if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
+  debootstrap --no-check-gpg --arch=$1 --variant=minbase stretch $2 http://deb.debian.org/debian
 else
   qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase stretch $2 http://deb.debian.org/debian
 fi
