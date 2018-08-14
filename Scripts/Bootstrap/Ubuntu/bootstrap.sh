@@ -5,8 +5,10 @@ rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] ; then
   debootstrap --no-check-gpg --arch i386 --variant=minbase bionic $2 http://archive.ubuntu.com/ubuntu
-else
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase bionic $2 http://archive.ubuntu.com/ubuntu
+elif [ "$1" = "amd64" ] ; then
+  debootstrap --no-check-gpg --arch amd64 --variant=minbase bionic $2 http://archive.ubuntu.com/ubuntu
+else  
+  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase bionic $2 http://ports.ubuntu.com/ubuntu-ports
 fi
 
 #Reduce size
@@ -20,8 +22,16 @@ echo "nameserver 8.8.4.4" >> $3/etc/resolv.conf
 
 #sources.list setup
 rm $2/etc/apt/sources.list
-echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
-echo "deb-src http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+if [ "$1" = "i386" ] ; then
+  echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+elif [ "$1" = "amd64" ] ; then
+  echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+else  
+  echo "deb http://ports.ubuntu.com/ubuntu-ports bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://ports.ubuntu.com/ubuntu-ports bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+fi
 
 #tar the rootfs
 cd $2
