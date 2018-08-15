@@ -13,11 +13,11 @@ The bash script download image over internet, then decompress the image and then
 
 Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
 
-> ./bootstrap <architecture> /path/to/bootstrap
+> ./bootstrap.sh <architecture> /path/to/bootstrap
    
 For example: 
 
-> ./bootstrap armhf /home/user/debian/armhf   
+> ./bootstrap.sh armhf /home/user/debian/armhf   
 
 
 
