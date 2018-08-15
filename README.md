@@ -43,6 +43,6 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 ## Reference
 
-[GNURootDebian](https://github.com/corbinlc/GNURootDebian)
-[debian-noroot](https://github.com/pelya/debian-noroot)
-[termux-ubuntu](https://github.com/Neo-Oli/termux-ubuntu)
+1. [GNURootDebian](https://github.com/corbinlc/GNURootDebian)
+2. [debian-noroot](https://github.com/pelya/debian-noroot)
+3. [termux-ubuntu](https://github.com/Neo-Oli/termux-ubuntu)
