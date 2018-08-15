@@ -15,9 +15,9 @@ The bash script download image over internet, then decompress the image and then
 
 2. About device requirement:
 
-Android Version : At lease Android Lollipop
+   Android Version : At lease Android Lollipop
 
-Architeture : armv7, arm64, x86, x86_64
+   Architeture : armv7, arm64, x86, x86_64
 
 3. Currently only work for command line, GUI are still in progress, please do not blame developers for this.
 
