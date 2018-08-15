@@ -9,6 +9,18 @@ The bash script download image over internet, then decompress the image and then
 
 
 
+## Bootstraping System
+
+Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
+
+> ./bootstrap.sh <architecture> /path/to/bootstrap
+   
+For example: 
+
+> ./bootstrap.sh armhf /home/user/debian/armhf   
+
+
+
 ## Note
 
 1. This app required [Termux](https://github.com/termux/termux-app) to work, it could be install on Play Store.
@@ -43,6 +55,6 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 ## Reference
 
-[GNURootDebian](https://github.com/corbinlc/GNURootDebian)
-[debian-noroot](https://github.com/pelya/debian-noroot)
-[termux-ubuntu](https://github.com/Neo-Oli/termux-ubuntu)
+1. [GNURootDebian](https://github.com/corbinlc/GNURootDebian)
+2. [debian-noroot](https://github.com/pelya/debian-noroot)
+3. [termux-ubuntu](https://github.com/Neo-Oli/termux-ubuntu)
