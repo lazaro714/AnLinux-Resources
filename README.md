@@ -9,6 +9,16 @@ The bash script download image over internet, then decompress the image and then
 
 
 
+## Bootstraping System
+
+Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
+
+./bootstrap <architecture> /path/to/bootstrap
+   
+For example: ./bootstrap armhf /home/user/debian/armhf   
+
+
+
 ## Note
 
 1. This app required [Termux](https://github.com/termux/termux-app) to work, it could be install on Play Store.
