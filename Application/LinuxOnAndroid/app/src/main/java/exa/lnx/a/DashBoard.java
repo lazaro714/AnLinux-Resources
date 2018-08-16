@@ -101,8 +101,8 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Fedora")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
                     clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Centos")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Centos/centos.sh && bash centos.sh");
+                }else if(distro.equals("CentOS")){
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Leap")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
@@ -274,9 +274,9 @@ public class DashBoard extends Fragment {
                         distro = "Fedora";
                     }
                 }else if(checkBox5.isChecked()){
-                    if(!distro.equals("Centos")){
+                    if(!distro.equals("CentOS")){
                         shouldShowAds = true;
-                        distro = "Centos";
+                        distro = "CentOS";
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("Leap")){
@@ -301,8 +301,8 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
-                }else if(distro.equals("Centos")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Centos/centos.sh && bash centos.sh \n\n This should install Centos on your system, you can then run ./start-centos.sh to run the command line.");
+                }else if(distro.equals("CentOS")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
                 }else if(distro.equals("Leap")){
                     textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
