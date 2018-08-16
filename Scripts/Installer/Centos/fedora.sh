@@ -74,4 +74,4 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "You can now launch Fedora with the ./${bin} script"
+echo "You can now launch Centos with the ./${bin} script"
