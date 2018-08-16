@@ -242,9 +242,14 @@ public class DashBoard extends Fragment {
             checkBox4.setEnabled(false);
             checkBox6.setEnabled(false);
             checkBox7.setEnabled(false);
+            checkBox4.setText("Not supported");
+            checkBox6.setText("Not supported");
+            checkBox7.setText("Not supported");
         }else if (s.equals("armeabi") | s.equals("armeabi-v7a")){
             checkBox6.setEnabled(false);
             checkBox7.setEnabled(false);
+            checkBox6.setText("Not supported");
+            checkBox7.setText("Not supported");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
