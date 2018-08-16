@@ -24,7 +24,8 @@ if [ "$first" != 1 ];then
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude json --exclude VERSION --exclude='dev'||:
+	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
+	chmod +w .
 	echo "Setting up name server"
 	echo "127.0.0.1 localhost" > /etc/hosts
         echo "nameserver 8.8.8.8" > /etc/resolv.conf
