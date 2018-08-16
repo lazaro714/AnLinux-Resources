@@ -4,7 +4,7 @@ if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="fedora-rootfs.tar.gz"
+tarball="fedora-rootfs.tar.xz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
@@ -18,7 +18,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Fedora/${archurl}/fedora-rootfs-${archurl}.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Fedora/${archurl}/fedora-rootfs-${archurl}.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
