@@ -19,6 +19,9 @@ public class About extends Fragment {
         getActivity().setTitle(R.string.about);
         View view = inflater.inflate(R.layout.about, container, false);
 
+        button = view.findViewById(R.id.button);
+        button2 = view.findViewById(R.id.button2);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +38,6 @@ public class About extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
     }
 }
