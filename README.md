@@ -11,6 +11,8 @@ The bash script download image over internet, then decompress the image and then
 
 ## Bootstraping System
 
+Note: Only Ubuntu, Debian, Kali are bootstrap using the script, others are docker image without modification.
+
 Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
 
 > ./bootstrap.sh <architecture> /path/to/bootstrap
