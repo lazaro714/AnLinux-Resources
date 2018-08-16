@@ -20,7 +20,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/Centos/${archurl}/centos-rootfs-${archurl}.tar.xz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/CentOS/${archurl}/centos-rootfs-${archurl}.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -74,4 +74,4 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "You can now launch Centos with the ./${bin} script"
+echo "You can now launch CentOS with the ./${bin} script"
