@@ -35,7 +35,9 @@ For example:
 
 3. Currently only work for command line, GUI are still in progress, please do not blame developers for this.
 
-4. Currently only Ubuntu, Debian, Kali are supported, more distro are expected soon.
+4. Currently supported distro:
+
+   Ubuntu, Debian, Kali, Fedora, Centos, openSUSE Leap, openSUSE Tumberweed
 
 5. For any suggestion or issue, please open an issue on Github.
 
@@ -51,7 +53,7 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 1. GUI: XSDL works, but could not perform any clicking action(Maybe because the application is too old), XRDP does not work, VNC not test yet.
 
-2. Other Distro Support
+2. Arch Linux support
 
 
 
