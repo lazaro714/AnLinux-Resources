@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
-	/data/data/com.termux/files/usr/bin/tartar -xf ${cur}/${tarball} --strip-components=1 --exclude json --exclude VERSION && /data/data/com.termux/files/usr/bin/tar -xpf layer.tar||:
+	/data/data/com.termux/files/usr/bin/tar -xf ${cur}/${tarball} --strip-components=1 --exclude json --exclude VERSION && /data/data/com.termux/files/usr/bin/tar -xpf layer.tar||:
 	echo "Setting up name server"
 	echo "127.0.0.1 localhost" > /etc/hosts
         echo "nameserver 8.8.8.8" > /etc/resolv.conf
