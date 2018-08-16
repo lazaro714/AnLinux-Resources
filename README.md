@@ -37,7 +37,7 @@ For example:
 
 4. Currently supported distro:
 
-   Ubuntu, Debian, Kali, Fedora, Centos, openSUSE Leap, openSUSE Tumberweed
+   Ubuntu, Debian, Kali, Fedora, CentOS, openSUSE Leap, openSUSE Tumberweed
 
 5. For any suggestion or issue, please open an issue on Github.
 
