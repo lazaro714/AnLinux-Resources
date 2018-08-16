@@ -27,7 +27,7 @@ For example:
 
 ## Note
 
-1. This app required [Termux](https://github.com/termux/termux-app) to work, it could be install on Play Store.
+1. This app required [Termux](https://github.com/termux/termux-app) to work, it could be install on Play Store. Or download it from ]F-Droid](https://f-droid.org/packages/com.termux/) if you dont have access to Play Store
 
 2. About device requirement:
 
