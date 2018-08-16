@@ -1,6 +1,8 @@
 # LinuxOnAndroid
 Run Linux On Android Without Root Access, thanks for the Awesome [Termux](https://github.com/termux/termux-app) and [PRoot](https://github.com/proot-me/PRoot), which make this project possible.
 
+You can find the application on Play Store [Here](https://play.google.com/store/apps/details?id=exa.lnx.a)
+
 
 
 ## How it works
