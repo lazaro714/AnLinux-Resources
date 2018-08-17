@@ -14,6 +14,7 @@ chmod +x /etc/init.d/vncserver
 echo "You can now start vncserver by running /etc/init.d/vncserver start"
 echo "It will ask you to enter a password when first time starting it."
 echo "The VNC Server will be started at 127.0.0.1:5901"
+echo "Youc can connect to this address with a VNC Viewer you prefer"
 echo "Connect to this address will open a window with xterm"
 echo "You can run any GUI program in xterm, and close them with CTRl+C"
 echo "Hacker Keyboard is recommended if you want to use the GUI, it could be install from Play Store"
