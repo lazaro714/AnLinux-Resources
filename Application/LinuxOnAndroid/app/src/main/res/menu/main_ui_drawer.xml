@@ -12,7 +12,10 @@
 
     <item android:title="@string/others">
         <menu>
-
+            <item
+                android:id="@+id/gui"
+                android:icon="@drawable/ic_gui"
+                android:title="@string/gui" />
             <item
                 android:id="@+id/about"
                 android:icon="@drawable/ic_about"

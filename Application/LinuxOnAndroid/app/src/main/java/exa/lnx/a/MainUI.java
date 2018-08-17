@@ -74,6 +74,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof GUI){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         }
         return false;
@@ -87,6 +92,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             newFragment(0);
         }else if(id == R.id.about){
             newFragment(1);
+        }else if(id == R.id.gui){
+            newFragment(2);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -109,6 +116,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 1:
                 fragment = new About();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 2:
+                fragment = new GUI();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

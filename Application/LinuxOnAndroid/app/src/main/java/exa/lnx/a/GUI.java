@@ -18,14 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
-public class DashBoard extends Fragment {
+public class GUI extends Fragment {
 
     Context context;
     Button button;
@@ -40,8 +39,9 @@ public class DashBoard extends Fragment {
     AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        getActivity().setTitle(R.string.gui_title);
 
-        View view = inflater.inflate(R.layout.dashboard, container, false);
+        View view = inflater.inflate(R.layout.gui, container, false);
 
         context = getActivity().getApplicationContext();
 
@@ -50,21 +50,6 @@ public class DashBoard extends Fragment {
         s = Build.SUPPORTED_ABIS[0];
 
         shouldShowAds = false;
-
-        if(s.equals("mips") | s.equals("mips64")){
-            Toast.makeText(context, "Your device is not supported", Toast.LENGTH_LONG).show();
-            getActivity().finish();
-        }
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
-
-        mAdView = view.findViewById(R.id.adView);
-
-        if(!donationInstalled()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mAdView.loadAd(new AdRequest.Builder().build());
-        }
 
         button = view.findViewById(R.id.button);
         button2 = view.findViewById(R.id.button2);
@@ -78,6 +63,16 @@ public class DashBoard extends Fragment {
         button2.setEnabled(false);
         button3.setEnabled(false);
 
+        mInterstitialAd = new InterstitialAd(context);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
+
+        mAdView = view.findViewById(R.id.adView);
+
+        if(!donationInstalled()){
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            mAdView.loadAd(new AdRequest.Builder().build());
+        }
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,27 +84,28 @@ public class DashBoard extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Debian/debian.sh && bash debian.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Kali/kali.sh && bash kali.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "yum install wget xterm tigervnc-server -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Yum/gui.sh && bash gui.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("CentOS")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Leap")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Tumbleweed")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "yum install wget xterm tigervnc-server -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Yum/gui.sh && bash gui.sh");
                     clipboard.setPrimaryClip(clip);
                 }
+                //else if(distro.equals("Leap")){
+                    //ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
+                    //clipboard.setPrimaryClip(clip);
+                //}else if(distro.equals("Tumbleweed")){
+                    //ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh");
+                    //clipboard.setPrimaryClip(clip);
+                //}
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled()){
                         mInterstitialAd.show();
@@ -166,11 +162,12 @@ public class DashBoard extends Fragment {
             checkBox4.setChecked(true);
         }else if(distro.equals("CentOS")){
             checkBox5.setChecked(true);
-        }else if(distro.equals("Leap")){
-            checkBox6.setChecked(true);
-        }else if(distro.equals("Tumbleweed")){
-            checkBox7.setChecked(true);
         }
+        //else if(distro.equals("Leap")){
+            //checkBox6.setChecked(true);
+        //}else if(distro.equals("Tumbleweed")){
+            //checkBox7.setChecked(true);
+        //}
 
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,8 +176,8 @@ public class DashBoard extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
+                //checkBox6.setChecked(false);
+                //checkBox7.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -190,8 +187,8 @@ public class DashBoard extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
+                //checkBox6.setChecked(false);
+                //checkBox7.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -201,8 +198,8 @@ public class DashBoard extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
+                //checkBox6.setChecked(false);
+                //checkBox7.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -212,8 +209,8 @@ public class DashBoard extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox3.setChecked(false);
                 checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
+                //checkBox6.setChecked(false);
+                //checkBox7.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -223,32 +220,32 @@ public class DashBoard extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
+                //checkBox6.setChecked(false);
+                //checkBox7.setChecked(false);
             }
         });
-        checkBox6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox7.setChecked(false);
-            }
-        });
-        checkBox7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-            }
-        });
+        //checkBox6.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view) {
+                //checkBox.setChecked(false);
+                //checkBox2.setChecked(false);
+                //checkBox3.setChecked(false);
+                //checkBox4.setChecked(false);
+                //checkBox5.setChecked(false);
+                // //checkBox7.setChecked(false);
+            //}
+        //});
+        //checkBox7.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view) {
+                //checkBox.setChecked(false);
+                //checkBox2.setChecked(false);
+                //checkBox3.setChecked(false);
+                //checkBox4.setChecked(false);
+                //checkBox5.setChecked(false);
+                // //checkBox6.setChecked(false);
+            //}
+        //});
         if(s.equals("i386")){
             checkBox4.setEnabled(false);
             checkBox6.setEnabled(false);
@@ -261,6 +258,11 @@ public class DashBoard extends Fragment {
             checkBox7.setEnabled(false);
             checkBox6.setText("Not supported");
             checkBox7.setText("Not supported");
+        }else{
+            checkBox6.setEnabled(false);
+            checkBox7.setEnabled(false);
+            checkBox6.setText("openSUSE Leap (Not yet supported)");
+            checkBox7.setText("openSUSE Tumbleweed (Not yet supported)");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -301,27 +303,29 @@ public class DashBoard extends Fragment {
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh \n\n This should install Ubuntu on your system, you can then run ./start-ubuntu.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh \n\n This should setup Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Debian/debian.sh && bash debian.sh \n\n This should install Debian on your system, you can then run ./start-debian.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh \n\n This should setup Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
+                    textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget xterm tightvncserver -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/gui.sh && bash gui.sh \n\n This should setup Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : yum install wget xterm tigervnc-server -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Yum/gui.sh && bash gui.sh \n\n This should setup Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
                 }else if(distro.equals("CentOS")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
-                }else if(distro.equals("Leap")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-leap.sh to run the command line.");
-                }else if(distro.equals("Tumbleweed")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh \n\n This should install openSUSE Tumbleweed on your system, you can then run ./start-tumbleweed.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-tumbleweed.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : yum install wget xterm tigervnc-server -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Yum/gui.sh && bash gui.sh \n\n This should setup Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the Linux System before using this command.");
                 }
+
+                //else if(distro.equals("Leap")){
+                    //textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
+                    //textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-leap.sh to run the command line.");
+                //}else if(distro.equals("Tumbleweed")){
+                    //textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh \n\n This should install openSUSE Tumbleweed on your system, you can then run ./start-tumbleweed.sh to run the command line.");
+                    //textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-tumbleweed.sh to run the command line.");
+                //}
                 button2.setEnabled(true);
                 button3.setEnabled(true);
                 dialog.dismiss();
