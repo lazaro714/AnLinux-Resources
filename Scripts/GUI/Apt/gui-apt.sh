@@ -2,7 +2,7 @@
 
 #Get the component
 apt-get update
-apt-get install xterm tightvncserver
+apt-get install xterm tightvncserver wget
 
 #Setup the necessary files
 mkdir ~/.vnc
