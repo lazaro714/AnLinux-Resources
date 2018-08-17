@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#Get the component
-apt-get update
-apt-get install xterm tightvncserver -y
-
 #Setup the necessary files
 mkdir ~/.vnc
 wget https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Scripts/GUI/Apt/xstartup -P ~/.vnc/
@@ -25,6 +21,12 @@ echo " "
 echo "You can run any GUI program in xterm, and close them with CTRl+C"
 echo " "
 echo "Hacker Keyboard is recommended if you want to use the GUI, it could be install from Play Store"
+echo " "
+echo " "
+echo " "
+echo "Running /etc/init.d/vncserver start"
+echo " "
+echo " "
 echo " "
 
 /etc/init.d/vncserver start
