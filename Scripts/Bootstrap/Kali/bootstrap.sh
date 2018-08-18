@@ -22,6 +22,8 @@ echo "nameserver 8.8.4.4" >> $3/etc/resolv.conf
 rm $2/etc/apt/sources.list
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
 echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
+#Import the gpg key, this is only required in Kali
+wget https://archive.kali.org/archive-key.asc -O $2/etc/apt/trusted.gpg.d/kali-archive-key.asc
 
 #tar the rootfs
 cd $2
