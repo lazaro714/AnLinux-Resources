@@ -16,7 +16,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/LinuxOnAndroid/master/Rootfs/openSUSE/Leap/${archurl}/openSUSE-Leap-rootfs-${archurl}.tar.xz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/openSUSE/Leap/${archurl}/openSUSE-Leap-rootfs-${archurl}.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
