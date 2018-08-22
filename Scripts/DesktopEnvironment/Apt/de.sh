@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install lxde tightvncserver -y
+apt-get install lxde-core tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
