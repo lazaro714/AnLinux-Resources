@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Get the necessary components
-yum groupinstall lxde -y
+yum groupinstall lxde-desktop -y
 yum install tigervnc-server -y
 
 #Setup the necessary files
