@@ -9,14 +9,12 @@ if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
-		aarch64)
-			archurl="aarch64" ;;
-		arm)
-			archurl="armv7" ;;
+		amd64)
+			archurl="x86_64" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "http://os.archlinuxarm.org/os/ArchLinuxARM-${archurl}-latest.tar.gz" -O $tarball
+		wget "http://mirrors.evowise.com/archlinux/iso/2018.10.01/archlinux-bootstrap-2018.10.01-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
