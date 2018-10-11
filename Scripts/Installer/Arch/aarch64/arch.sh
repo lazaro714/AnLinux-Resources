@@ -1,35 +1,32 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=opensuse-fs
+folder=arch-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="opensuse.tar"
+tarball="arch-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
-        arm)
-			archurl="armhf" ;;
+		aarch64)
+			archurl="aarch64" ;;
+		arm)
+			archurl="armv7" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/openSUSE/Leap/${archurl}/openSUSE.tar" -O $tarball
+		wget "http://os.archlinuxarm.org/os/ArchLinuxARM-${archurl}-latest.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
-	
-	echo "Setting up name server"
-	echo "127.0.0.1 localhost" > etc/hosts
-    echo "nameserver 8.8.8.8" > etc/resolv.conf
-    echo "nameserver 8.8.4.4" >> etc/resolv.conf
+	proot --link2symlink tar -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
 mkdir -p binds
-bin=start-opensuse.sh
+bin=start-arch.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
@@ -70,4 +67,4 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "You can now launch openSUSE with the ./${bin} script"
+echo "You can now launch Arch Linux with the ./${bin} script"
