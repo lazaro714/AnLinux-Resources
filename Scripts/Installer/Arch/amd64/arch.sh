@@ -69,5 +69,4 @@ echo "You can now launch Arch Linux with the ./${bin} script"
 echo "Preparing additional component for the first time, please wait..."
 wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/resolv.conf" -P arch-fs/root
 wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/additional.sh" -P arch-fs/root
-chmod 777 archfs/root/additional.sh
 echo "done"
