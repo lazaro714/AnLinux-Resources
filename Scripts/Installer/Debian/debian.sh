@@ -29,7 +29,7 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p debian-binds
 bin=start-debian.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -41,8 +41,8 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A debian-binds)" ]; then
+    for f in debian-binds/* ;do
       . \$f
     done
 fi

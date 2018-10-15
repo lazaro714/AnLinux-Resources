@@ -30,7 +30,7 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.4.4" >> etc/resolv.conf
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p opensuse-tumbleweed-binds
 bin=start-tumbleweed.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -42,8 +42,8 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A opensuse-tumbleweed-binds)" ]; then
+    for f in opensuse-tumbleweed-binds/* ;do
       . \$f
     done
 fi

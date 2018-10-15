@@ -34,7 +34,7 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.4.4" >> etc/resolv.conf
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p centos-binds
 bin=start-centos.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -46,8 +46,8 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A centos-binds)" ]; then
+    for f in centos-binds/* ;do
       . \$f
     done
 fi

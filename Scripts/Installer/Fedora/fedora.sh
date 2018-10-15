@@ -32,7 +32,7 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.4.4" >> etc/resolv.conf
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p fedora-binds
 bin=start-fedora.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -44,8 +44,8 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A fedora-binds)" ]; then
+    for f in fedora-binds/* ;do
       . \$f
     done
 fi
