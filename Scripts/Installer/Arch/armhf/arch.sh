@@ -68,3 +68,10 @@ termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
 echo "You can now launch Arch Linux with the ./${bin} script"
+echo "Running additional Setup for the first time, please wait"
+bash start-arch.sh
+systemctl disable systemd-resolved.service
+service systemd-resolved stop
+rm /etc/resolv.conf
+wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/resolv.conf" -P /etc
+echo "done"
