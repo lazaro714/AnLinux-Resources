@@ -8,7 +8,8 @@ rm -rf kali-binds
 rm kali-rootfs.tar.gz
 rm kali.sh
 rm start-kali.sh
-rm UNI-kali.sh
+rm ssh-apt.sh
 rm de-apt.sh
+rm UNI-kali.sh
 
 echo "Done"

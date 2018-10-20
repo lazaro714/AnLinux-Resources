@@ -8,6 +8,7 @@ rm -rf centos-binds
 rm centos-rootfs.tar.gz
 rm centos.sh
 rm start-centos.sh
+rm ssh-yum.sh
 rm UNI-centos.sh
 
 echo "Done"

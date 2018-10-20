@@ -8,7 +8,8 @@ rm -rf arch-binds
 rm arch-rootfs.tar.gz
 rm arch.sh
 rm start-arch.sh
-rm UNI-arch.sh
+rm ssh-pac.sh
 rm de-pac.sh
+rm UNI-arch.sh
 
 echo "Done"

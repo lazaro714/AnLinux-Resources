@@ -8,7 +8,8 @@ rm -rf debian-binds
 rm debian-rootfs.tar.gz
 rm debian.sh
 rm start-debian.sh
-rm UNI-debian.sh
+rm ssh-apt.sh
 rm de-apt.sh
+rm UNI-debian.sh
 
 echo "Done"

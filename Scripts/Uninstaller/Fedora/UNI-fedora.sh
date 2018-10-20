@@ -8,7 +8,8 @@ rm -rf fedora-binds
 rm fedora-rootfs.tar.gz
 rm fedora.sh
 rm start-fedora.sh
-rm UNI-fedora.sh
+rm ssh-yum.sh
 rm de-yum.sh
+rm UNI-fedora.sh
 
 echo "Done"
