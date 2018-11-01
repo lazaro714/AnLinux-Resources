@@ -1,0 +1,4 @@
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/libandroid-shmem-gnueabihf.so -P /usr/local/lib
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/ld.so.preload -P /etc
+
+source /etc/ld.so.preload
