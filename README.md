@@ -15,3 +15,7 @@ Script located at Scripts/Bootstrap are used to bootstrap the system, to bootstr
 For example: 
 
 > ./bootstrap.sh armhf /home/user/debian/armhf
+
+## License
+
+The Ashmem Library is is taken from here: [android-ashmem](https://github.com/pelya/android-shmem)
