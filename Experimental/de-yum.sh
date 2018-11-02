@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Get the necessary components
+echo "exclude=systemd*" >> /etc/yum.conf
 yum groupinstall xfce-desktop-environment -y
 yum install tigervnc-server -y
 
