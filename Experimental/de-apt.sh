@@ -33,4 +33,4 @@ echo " "
 echo "export DISPLAY=":1" >> /etc/profile
 source /etc/profile
 
-vncserver
+vncserver-start
