@@ -2,12 +2,13 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xfce4 tightvncserver -y
+apt-mark hold systemd*
+apt-get install xfce4 tightvncserver --no-install-recommends -y
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/vncserver -P /etc/init.d/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/xstartup -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver -P /etc/init.d/
 chmod +x ~/.vnc/xstartup
 chmod +x /etc/init.d/vncserver
 
@@ -20,7 +21,7 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
-echo "Connect to this address will open a window with full LXDE Desktop Environment"
+echo "Connect to this address will open a window with full Xfce4 Desktop Environment"
 echo " "
 echo " "
 echo " "
@@ -28,8 +29,5 @@ echo "Running /etc/init.d/vncserver start"
 echo " "
 echo " "
 echo " "
-
-echo "export DISPLAY=:0.0" >> /etc/profile
-source /etc/profile
 
 /etc/init.d/vncserver start
