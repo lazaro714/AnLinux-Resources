@@ -8,9 +8,7 @@ apt-get install xfce4 tightvncserver --no-install-recommends -y
 #Setup the necessary files
 mkdir ~/.vnc
 wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver -P /etc/init.d/
 chmod +x ~/.vnc/xstartup
-chmod +x /etc/init.d/vncserver
 
 echo " "
 echo "You can now start vncserver by running /etc/init.d/vncserver start"
@@ -25,9 +23,9 @@ echo "Connect to this address will open a window with full Xfce4 Desktop Environ
 echo " "
 echo " "
 echo " "
-echo "Running /etc/init.d/vncserver start"
+echo "Starting VNC Server"
 echo " "
 echo " "
 echo " "
 
-/etc/init.d/vncserver start
+vncserver
