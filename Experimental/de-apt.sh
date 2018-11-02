@@ -13,7 +13,7 @@ chmod +x ~/.vnc/xstartup
 chmod +x /usr/bin/vncserver-start
 
 echo " "
-echo "You can now start vncserver by running /etc/init.d/vncserver start"
+echo "You can now start vncserver by running vncserver-start"
 echo " "
 echo "It will ask you to enter a password when first time starting it."
 echo " "
