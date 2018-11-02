@@ -2,7 +2,6 @@
 
 #Get the necessary components
 apt-get update
-apt-mark hold systemd*
 apt-get install xfce4 xfonts-base gnome-terminal tightvncserver --no-install-recommends -y
 
 #Setup the necessary files
@@ -25,7 +24,7 @@ echo "Connect to this address will open a window with full Xfce4 Desktop Environ
 echo " "
 echo " "
 echo " "
-echo "Starting VNC Server"
+echo "Running vncserver-start"
 echo " "
 echo " "
 echo " "

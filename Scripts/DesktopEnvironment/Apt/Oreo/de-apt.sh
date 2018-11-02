@@ -1,8 +1,9 @@
 #!/bin/bash
 
 #Get the necessary components
-yum groupinstall xfce-desktop-environment --forcearch=armv7hl -y
-yum install tigervnc-server --forcearch=armv7hl -y
+apt-get update
+apt-mark hold systemd*
+apt-get install xfce4 xfonts-base gnome-terminal tightvncserver --no-install-recommends -y
 
 #Setup the necessary files
 mkdir ~/.vnc
