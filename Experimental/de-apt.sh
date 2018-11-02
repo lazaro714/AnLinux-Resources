@@ -3,7 +3,7 @@
 #Get the necessary components
 apt-get update
 apt-mark hold systemd*
-apt-get install xfce4 gnome-terminal tightvncserver --no-install-recommends -y
+apt-get install xfce4 xfonts-base gnome-terminal tightvncserver --no-install-recommends -y
 
 #Setup the necessary files
 mkdir ~/.vnc
@@ -30,7 +30,7 @@ echo " "
 echo " "
 echo " "
 
-echo "export DISPLAY=":1" >> /etc/profile
+echo "export DISPLAY=":1"" >> /etc/profile
 source /etc/profile
 
 vncserver-start
