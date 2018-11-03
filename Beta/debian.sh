@@ -30,6 +30,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p debian-binds
+mkdir -p tmp
 bin=start-debian.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -48,9 +49,8 @@ if [ -n "\$(ls -A debian-binds)" ]; then
 fi
 command+=" -b /dev"
 command+=" -b /proc"
+command+=" -b /data/data/com.termux/files/home:/root/termux"
 command+=" -b /data/data/com.termux/files/home/tmp:/dev/shm"
-## uncomment the following line to have access to the home directory of termux
-#command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
 #command+=" -b /sdcard"
 command+=" -w /root"
