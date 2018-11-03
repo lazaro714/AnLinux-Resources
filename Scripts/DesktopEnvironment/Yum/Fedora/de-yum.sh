@@ -10,8 +10,8 @@ wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/D
 wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/vncserver-start -P /usr/local/bin/
 wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/vncserver-stop -P /usr/local/bin/
 chmod +x ~/.vnc/xstartup
-chmod +x /usr/bin/vncserver-start
-chmod +x /usr/bin/vncserver-stop
+chmod +x /usr/local/bin/vncserver-start
+chmod +x /usr/local/bin/vncserver-stop
 
 echo " "
 echo "You can now start vncserver by running vncserver-start"
