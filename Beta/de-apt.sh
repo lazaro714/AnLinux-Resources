@@ -2,12 +2,13 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xfce4 xfonts-base gnome-terminal tightvncserver --no-install-recommends -y
+apt-mark hold systemd*
+apt-get install xfce4 xfonts-base gnome-terminal tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/vncserver-start -P /usr/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/xstartup -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/vncserver-start -P /usr/bin/
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/bin/vncserver-start
 
@@ -24,7 +25,7 @@ echo "Connect to this address will open a window with full Xfce4 Desktop Environ
 echo " "
 echo " "
 echo " "
-echo "Running vncserver-start"
+echo "Starting VNC Server"
 echo " "
 echo " "
 echo " "
