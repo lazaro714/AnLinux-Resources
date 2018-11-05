@@ -11,6 +11,8 @@ if [ "$first" != 1 ];then
 		case `dpkg --print-architecture` in
 		amd64)
 			archurl="x86_64" ;;
+		x86_64)
+		    archurl="x86_64" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
