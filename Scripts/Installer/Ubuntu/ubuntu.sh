@@ -16,7 +16,7 @@ if [ "$first" != 1 ];then
 		amd64)
 			archurl="amd64" ;;
 		x86_64)
-		    archurl="x86_64" ;;	
+		        archurl="x86_64" ;;	
 		i*86)
 			archurl="i386" ;;
 		x86)
