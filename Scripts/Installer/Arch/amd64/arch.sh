@@ -12,7 +12,7 @@ if [ "$first" != 1 ];then
 		amd64)
 			archurl="x86_64" ;;
 		x86_64)
-		    archurl="x86_64" ;;
+			archurl="amd64" ;;	
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
