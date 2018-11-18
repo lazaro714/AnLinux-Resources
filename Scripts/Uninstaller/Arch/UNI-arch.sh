@@ -5,7 +5,6 @@ echo "Uninstalling], please be patient..."
 chmod 777 -R arch-fs/*
 rm -rf arch-fs
 rm -rf arch-binds
-rm arch-rootfs.tar.gz
 rm arch.sh
 rm start-arch.sh
 rm ssh-pac.sh

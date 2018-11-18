@@ -5,7 +5,6 @@ echo "Starting to uninstall, please be patient..."
 chmod 777 -R kali-fs/*
 rm -rf kali-fs
 rm -rf kali-binds
-rm kali-rootfs.tar.gz
 rm kali.sh
 rm start-kali.sh
 rm ssh-apt.sh

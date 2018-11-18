@@ -5,7 +5,6 @@ echo "Starting to uninstall, please be patient..."
 chmod 777 -R opensuse-fs/*
 rm -rf opensuse-fs
 rm -rf opensuse-binds
-rm opensuse-rootfs.tar.gz
 rm opensuse.sh
 rm start-opensuse.sh
 rm UNI-opensuse.sh
