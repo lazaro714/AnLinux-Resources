@@ -2,13 +2,13 @@
 
 #Get the necessary components
 apt-get update
-apt-get install mate-desktop-environment-core mate-terminal tightvncserver -y
+apt-get install lxde-core lxterminal tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/vncserver-start -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/vncserver-stop -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/xstartup -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/vncserver-start -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/vncserver-stop -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/local/bin/vncserver-start
@@ -23,7 +23,7 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
-echo "Connect to this address will open a window with full Mate Desktop Environment"
+echo "Connect to this address will open a window with LXDE Desktop Environment"
 echo " "
 echo " "
 echo " "

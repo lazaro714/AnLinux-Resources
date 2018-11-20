@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #Get the necessary components
-yum groupinstall xfce-desktop-environment --forcearch=armv7hl -y
+yum groupinstall lxde-desktop --forcearch=armv7hl -y
 yum install tigervnc-server --forcearch=armv7hl -y
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/vncserver-start -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/vncserver-stop -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/xstartup -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/vncserver-start -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/vncserver-stop -P /usr/local/bin/
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/local/bin/vncserver-start
 chmod +x /usr/local/bin/vncserver-stop
@@ -22,7 +22,7 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
-echo "Connect to this address will open a window with Xfce4 Desktop Environment"
+echo "Connect to this address will open a window with LXDE Desktop Environment"
 echo " "
 echo " "
 echo " "
