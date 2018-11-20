@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xfce4 xfce4-terminal xfonts-base tightvncserver -y
+apt-get install xfce4 xfce4-terminal tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
