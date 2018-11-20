@@ -1,0 +1,4 @@
+export USER=root
+export HOME=/root
+
+vncserver -kill :1
