@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install mate-desktop-environment-core gnome-terminal -y
+apt-get install mate-desktop-environment-core gnome-terminal tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
