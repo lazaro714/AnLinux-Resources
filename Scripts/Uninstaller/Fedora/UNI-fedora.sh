@@ -9,6 +9,10 @@ rm fedora.sh
 rm start-fedora.sh
 rm ssh-yum.sh
 rm de-yum.sh
+rm de-yum-xfce4.sh
+rm de-yum-mate.sh
+rm de-yum-lxqt.sh
+rm de-yum-lxde.sh
 rm UNI-fedora.sh
 
 echo "Done"
