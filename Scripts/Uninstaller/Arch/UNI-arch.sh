@@ -5,10 +5,10 @@ echo "Uninstalling], please be patient..."
 chmod 777 -R arch-fs/*
 rm -rf arch-fs
 rm -rf arch-binds
-rm arch.sh
-rm start-arch.sh
-rm ssh-pac.sh
-rm de-pac.sh
-rm UNI-arch.sh
+rm -rf arch.sh
+rm -rf start-arch.sh
+rm -rf ssh-pac.sh
+rm -rf de-pac.sh
+rm -rf UNI-arch.sh
 
 echo "Done"

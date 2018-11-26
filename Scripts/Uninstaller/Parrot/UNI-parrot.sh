@@ -5,14 +5,14 @@ echo "Starting to uninstall, please be patient..."
 chmod 777 -R parrot-fs/*
 rm -rf parrot-fs
 rm -rf parrot-binds
-rm parrot.sh
-rm start-parrot.sh
-rm ssh-apt.sh
-rm de-apt.sh
-rm de-apt-xfce4.sh
-rm de-apt-mate.sh
-rm de-apt-lxqt.sh
-rm de-apt-lxde.sh
-rm UNI-parrot.sh
+rm -rf parrot.sh
+rm -rf start-parrot.sh
+rm -rf ssh-apt.sh
+rm -rf de-apt.sh
+rm -rf de-apt-xfce4.sh
+rm -rf de-apt-mate.sh
+rm -rf de-apt-lxqt.sh
+rm -rf de-apt-lxde.sh
+rm -rf UNI-parrot.sh
 
 echo "Done"

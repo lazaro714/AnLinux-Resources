@@ -5,14 +5,14 @@ echo "Starting to uninstall, please be patient..."
 chmod 777 -R ubuntu-fs/*
 rm -rf ubuntu-fs
 rm -rf ubuntu-binds
-rm ubuntu.sh
-rm start-ubuntu.sh
-rm ssh-apt.sh
-rm de-apt.sh
-rm de-apt-xfce4.sh
-rm de-apt-mate.sh
-rm de-apt-lxqt.sh
-rm de-apt-lxde.sh
-rm UNI-ubuntu.sh
+rm -rf ubuntu.sh
+rm -rf start-ubuntu.sh
+rm -rf ssh-apt.sh
+rm -rf de-apt.sh
+rm -rf de-apt-xfce4.sh
+rm -rf de-apt-mate.sh
+rm -rf de-apt-lxqt.sh
+rm -rf de-apt-lxde.sh
+rm -rf UNI-ubuntu.sh
 
 echo "Done"
