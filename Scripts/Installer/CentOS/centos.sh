@@ -39,6 +39,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p centos-binds
+mkdir -p centos-fs/tmp
 bin=start-centos.sh
 echo "writing launch script"
 cat > $bin <<- EOM
