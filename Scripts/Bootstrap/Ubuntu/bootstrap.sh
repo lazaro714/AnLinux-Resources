@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0 bionic $2 http://archive.ubuntu.com/ubuntu
+  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates bionic $2 http://archive.ubuntu.com/ubuntu
 else  
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0 bionic $2 http://ports.ubuntu.com/ubuntu-ports
+  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates bionic $2 http://ports.ubuntu.com/ubuntu-ports
 fi
 
 #Reduce size

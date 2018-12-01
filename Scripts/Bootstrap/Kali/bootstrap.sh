@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0 kali-rolling $2 http://mirror.fsmg.org.nz/kali
+  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates kali-rolling $2 http://mirror.fsmg.org.nz/kali
 else
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0 kali-rolling $2 http://mirror.fsmg.org.nz/kali
+  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates kali-rolling $2 http://mirror.fsmg.org.nz/kali
 fi
 
 #Reduce size
