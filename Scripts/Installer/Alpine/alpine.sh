@@ -9,7 +9,7 @@ if [ "$first" != 1 ];then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
 		aarch64)
-			archurl="arm64" ;;
+			archurl="arm64"
 			tarball="alpine-rootfs.tar.gz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
@@ -17,9 +17,9 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		arm)
-			archurl="armhf" ;;
+			archurl="armhf"
 			tarball="alpine-rootfs.tar.gz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
@@ -27,9 +27,9 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		amd64)
-			archurl="amd64" ;;
+			archurl="amd64"
 			tarball="alpine-rootfs.tar.xz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.xz" -O $tarball
 			cur=`pwd`
@@ -37,9 +37,9 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xJf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		x86_64)
-			archurl="amd64" ;;
+			archurl="amd64"
 			tarball="alpine-rootfs.tar.xz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.xz" -O $tarball
 			cur=`pwd`
@@ -47,9 +47,9 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xJf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		i*86)
-			archurl="i386" ;;
+			archurl="i386"
 			tarball="alpine-rootfs.tar.gz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
@@ -57,9 +57,9 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		x86)
-			archurl="i386" ;;
+			archurl="i386"
 			tarball="alpine-rootfs.tar.gz"
 			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
@@ -67,7 +67,7 @@ if [ "$first" != 1 ];then
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
 			proot --link2symlink tar -xf ${cur}/${tarball}||:
-			cd "$cur"
+			cd "$cur" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
