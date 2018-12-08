@@ -16,7 +16,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xf ${cur}/${tarball}||:
+			proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		arm)
 			archurl="armhf"
@@ -26,7 +26,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xf ${cur}/${tarball}||:
+			proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		amd64)
 			archurl="amd64"
@@ -36,7 +36,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xJf ${cur}/${tarball}||:
+			proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		x86_64)
 			archurl="amd64"
@@ -46,7 +46,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xJf ${cur}/${tarball}||:
+			proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		i*86)
 			archurl="i386"
@@ -56,7 +56,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xf ${cur}/${tarball}||:
+			proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		x86)
 			archurl="i386"
@@ -66,7 +66,7 @@ if [ "$first" != 1 ];then
 			mkdir -p "$folder"
 			cd "$folder"
 			echo "Decompressing Rootfs, please be patient."
-			proot --link2symlink tar -xf ${cur}/${tarball}||:
+			proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 			cd "$cur" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
