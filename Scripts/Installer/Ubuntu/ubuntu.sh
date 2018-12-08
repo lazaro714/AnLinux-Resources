@@ -33,7 +33,7 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p ubuntu-binds
 bin=start-ubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
