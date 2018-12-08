@@ -5,13 +5,13 @@ if [ -d "$folder" ]; then
 	echo "skipping downloading"
 fi
 if [ "$first" != 1 ];then
-	if [ ! -f $tarball ]; then
+	if [ ! -f alpine-rootfs-*.tar.* ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
 			tarball="alpine-rootfs.tar.gz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.gz" -O $tarball
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
@@ -21,7 +21,7 @@ if [ "$first" != 1 ];then
 		arm)
 			archurl="armhf" ;;
 			tarball="alpine-rootfs.tar.gz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.gz" -O $tarball
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
@@ -31,7 +31,7 @@ if [ "$first" != 1 ];then
 		amd64)
 			archurl="amd64" ;;
 			tarball="alpine-rootfs.tar.xz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.xz" -O $tarball2
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.xz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
@@ -41,7 +41,7 @@ if [ "$first" != 1 ];then
 		x86_64)
 			archurl="amd64" ;;
 			tarball="alpine-rootfs.tar.xz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.xz" -O $tarball2
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.xz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
@@ -51,7 +51,7 @@ if [ "$first" != 1 ];then
 		i*86)
 			archurl="i386" ;;
 			tarball="alpine-rootfs.tar.gz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.gz" -O $tarball
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
@@ -61,7 +61,7 @@ if [ "$first" != 1 ];then
 		x86)
 			archurl="i386" ;;
 			tarball="alpine-rootfs.tar.gz"
-			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/ubuntu-rootfs-${archurl}.tar.gz" -O $tarball
+			wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-rootfs-${archurl}.tar.gz" -O $tarball
 			cur=`pwd`
 			mkdir -p "$folder"
 			cd "$folder"
