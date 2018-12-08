@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R opensuse-tumbleweed-fs/*
+chmod 777 -R opensuse-tumbleweed-fs
 rm -rf opensuse-tumbleweed-fs
 rm -rf opensuse-tumbleweed-binds
 rm -rf opensuse-tumbleweed.sh

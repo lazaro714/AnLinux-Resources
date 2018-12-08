@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R debian-fs/*
+chmod 777 -R debian-fs
 rm -rf debian-fs
 rm -rf debian-binds
 rm -rf debian.sh

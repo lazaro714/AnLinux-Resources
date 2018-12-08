@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R centos-fs/*
+chmod 777 -R centos-fs
 rm -rf centos-fs
 rm -rf centos-binds
 rm -rf centos.sh

@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R parrot-fs/*
+chmod 777 -R parrot-fs
 rm -rf parrot-fs
 rm -rf parrot-binds
 rm -rf parrot.sh

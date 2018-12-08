@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R fedora-fs/*
+chmod 777 -R fedora-fs
 rm -rf fedora-fs
 rm -rf fedora-binds
 rm -rf fedora.sh

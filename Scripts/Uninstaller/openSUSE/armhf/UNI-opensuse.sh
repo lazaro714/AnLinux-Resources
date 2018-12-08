@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R opensuse-fs/*
+chmod 777 -R opensuse-fs
 rm -rf opensuse-fs
 rm -rf opensuse-binds
 rm -rf opensuse.sh

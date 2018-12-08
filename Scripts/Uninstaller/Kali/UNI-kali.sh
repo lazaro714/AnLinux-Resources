@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R kali-fs/*
+chmod 777 -R kali-fs
 rm -rf kali-fs
 rm -rf kali-binds
 rm -rf kali.sh

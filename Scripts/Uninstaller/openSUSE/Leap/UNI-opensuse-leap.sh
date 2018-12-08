@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R opensuse-leap-fs/*
+chmod 777 -R opensuse-leap-fs
 rm -rf opensuse-leap-fs
 rm -rf opensuse-leap-binds
 rm -rf opensuse-leap.sh

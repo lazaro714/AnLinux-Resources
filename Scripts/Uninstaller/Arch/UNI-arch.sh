@@ -2,7 +2,7 @@
 
 echo "Uninstalling], please be patient..."
 
-chmod 777 -R arch-fs/*
+chmod 777 -R arch-fs
 rm -rf arch-fs
 rm -rf arch-binds
 rm -rf arch.sh

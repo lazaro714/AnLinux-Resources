@@ -2,7 +2,7 @@
 
 echo "Starting to uninstall, please be patient..."
 
-chmod 777 -R ubuntu-fs/*
+chmod 777 -R ubuntu-fs
 rm -rf ubuntu-fs
 rm -rf ubuntu-binds
 rm -rf ubuntu.sh
