@@ -45,8 +45,8 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A ubuntu-binds)" ]; then
+    for f in ubuntu-binds/* ;do
       . \$f
     done
 fi
