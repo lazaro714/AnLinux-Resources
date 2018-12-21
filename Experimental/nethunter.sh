@@ -28,6 +28,7 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
 	cd "$cur"
 fi
+mv kali-${archurl} nethunter-fs
 mkdir -p nethunter-binds
 bin=start-nethunter.sh
 echo "writing launch script"
@@ -39,7 +40,7 @@ unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
-command+=" -r kali-$archurl"
+command+=" -r nethunter-fs"
 if [ -n "\$(ls -A nethunter-binds)" ]; then
     for f in nethunter-binds/* ;do
       . \$f
