@@ -1,5 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=nethunter-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -9,8 +8,6 @@ if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
-		aarch64)
-			archurl="arm64" ;;
 		arm)
 			archurl="armhf" ;;
 		amd64)
@@ -27,8 +24,6 @@ if [ "$first" != 1 ];then
 		wget "https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-${archurl}-full.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
-	mkdir -p "$folder"
-	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
 	cd "$cur"
@@ -44,7 +39,7 @@ unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
-command+=" -r $folder"
+command+=" -r kali-$archurl"
 if [ -n "\$(ls -A nethunter-binds)" ]; then
     for f in nethunter-binds/* ;do
       . \$f
