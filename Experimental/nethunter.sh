@@ -29,6 +29,10 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mv kali-${archurl} nethunter-fs
+rm nethunter-fs/etc/apt/sources.list
+echo "deb http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> nethunter-fs/etc/apt/sources.list
+echo "deb-src http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> nethunter-fs/etc/apt/sources.list
+wget https://archive.kali.org/archive-key.asc -O nethunter-fs/etc/apt/trusted.gpg.d/kali-archive-key.asc
 mkdir -p nethunter-binds
 bin=start-nethunter.sh
 echo "writing launch script"
