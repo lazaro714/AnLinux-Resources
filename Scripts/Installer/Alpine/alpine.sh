@@ -10,21 +10,21 @@ if [ "$first" != 1 ];then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
 		aarch64)
-			archurl="aarch64" ;;
+			archurl="arm64" ;;
 		arm)
 			archurl="armhf" ;;
 		amd64)
-			archurl="x86_64" ;;
+			archurl="amd64" ;;
 		x86_64)
-			archurl="x86_64" ;;	
+			archurl="amd64" ;;	
 		i*86)
-			archurl="x86" ;;
+			archurl="i386" ;;
 		x86)
-			archurl="x86" ;;
+			archurl="i386" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/${archurl}/alpine-minirootfs-3.8.2-${archurl}.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-minirootfs-3.8.2-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
