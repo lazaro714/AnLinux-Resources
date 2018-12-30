@@ -10,17 +10,17 @@ if [ "$first" != 1 ];then
 		echo "Download Rootfs, this may take a while base on your internet speed."
 		case `dpkg --print-architecture` in
 		aarch64)
-			archurl="arm64" ;;
+			archurl="aarch64" ;;
 		arm)
 			archurl="armhf" ;;
 		amd64)
-			archurl="amd64" ;;
+			archurl="x86_64" ;;
 		x86_64)
-			archurl="amd64" ;;	
+			archurl="x86_64" ;;	
 		i*86)
-			archurl="i386" ;;
+			archurl="x86" ;;
 		x86)
-			archurl="i386" ;;
+			archurl="x86" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
