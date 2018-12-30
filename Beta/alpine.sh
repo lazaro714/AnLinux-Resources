@@ -60,10 +60,10 @@ command+=" -b alpine-fs/tmp:/dev/shm"
 command+=" -w /root"
 command+=" /usr/bin/env -i"
 command+=" HOME=/root"
-command+=" PATH=PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/sh"
+command+=" PATH=PATH=/bin:/usr/bin:/sbin:/usr/sbin"
 command+=" TERM=\$TERM"
 command+=" LANG=C.UTF-8"
-command+=" /bin/bash --login"
+command+=" /bin/sh --login"
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
