@@ -24,8 +24,8 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		ALPINE_VER=$(wget http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/${archurl}/latest-releases.yaml | grep -m 1 -o version.* | sed -e 's/[^0-9.]*//g' -e 's/-$//')
-		wget "http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/${archurl}/alpine-minirootfs-$ALPINE_VER-$archurl.tar.gz" -O $tarball
+		ALPINE_VER=$(wget http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/${archurl}/latest-releases.yaml | grep -m 1 -o version.* | sed -e 's/version: //')
+		wget "http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/${archurl}/alpine-minirootfs-${ALPINE_VER}-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
