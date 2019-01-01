@@ -6,7 +6,7 @@ To open an issue, please visit [here](https://github.com/EXALAB/AnLinux-App/issu
 
 ## Bootstraping System
 
-Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/) are bootstrap using the script, others are docker image without modification.
+Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/) are bootstrap using the script, others are official image without modification.
 
 Script located at Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
 
