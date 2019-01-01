@@ -26,6 +26,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p arch-binds
+mkdir -p arch-fs/tmp
 bin=start-arch.sh
 echo "writing launch script"
 cat > $bin <<- EOM
