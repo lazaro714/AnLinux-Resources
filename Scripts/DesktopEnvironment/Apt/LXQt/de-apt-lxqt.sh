@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install lxqt-core qterminal tightvncserver -y
+apt-get install lxqt-core lxqt-config qterminal tightvncserver -y
 
 #Setup the necessary files
 mkdir ~/.vnc
