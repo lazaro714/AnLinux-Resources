@@ -12,11 +12,11 @@ if [ "$first" != 1 ];then
 		amd64)
 			archurl="x86_64" ;;
 		x86_64)
-			archurl="amd64" ;;	
+			archurl="x86_64" ;;	
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "http://mirrors.evowise.com/archlinux/iso/2018.12.01/archlinux-bootstrap-2018.12.01-${archurl}.tar.gz" -O $tarball
+		wget "http://mirrors.evowise.com/archlinux/iso/2019.01.01/archlinux-bootstrap-2019.01.01-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
