@@ -78,4 +78,7 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
+echo "Preparing additional component for the first time, please wait..."
+rm alpine-fs/etc/resolv.conf
+wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/resolv.conf" -P alpine-fs/etc
 echo "You can now launch Alpine with the ./${bin} script"
