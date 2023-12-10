@@ -7,7 +7,7 @@ tarball="nethunter-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
-		case `dpkg --print-architecture` in
+		case $(dpkg --print-architecture) in
 		arm)
 			archurl="armhf" ;;
 		amd64)
@@ -23,12 +23,12 @@ if [ "$first" != 1 ];then
 		esac
 		wget "https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-${archurl}-full.tar.xz" -O $tarball
 	fi
-	cur=`pwd`
+	cur=$(pwd)
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev'||:
-	cd "$cur"
+	proot --link2symlink tar -xJf "${cur}"/${tarball} --exclude='dev'||:
+	cd "$cur" || exit
 fi
-mv kali-${archurl} nethunter-fs
+mv kali-"${archurl}" nethunter-fs
 rm nethunter-fs/etc/apt/sources.list
 echo "deb http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> nethunter-fs/etc/apt/sources.list
 echo "deb-src http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> nethunter-fs/etc/apt/sources.list
