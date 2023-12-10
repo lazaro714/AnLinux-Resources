@@ -8,26 +8,30 @@ tarball="kali-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
-		case `dpkg --print-architecture` in
+		case $(dpkg --print-architecture) in
 		aarch64)
 			archurl="arm64" ;;
 		arm)
 			archurl="armhf" ;;
 		amd64)
 			archurl="amd64" ;;
+		x86_64)
+			archurl="amd64" ;;	
 		i*86)
+			archurl="i386" ;;
+		x86)
 			archurl="i386" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
 		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/${archurl}/kali-rootfs-${archurl}.tar.gz" -O $tarball
 	fi
-	cur=`pwd`
+	cur=$(pwd)
 	mkdir -p "$folder"
-	cd "$folder"
+	cd "$folder" || exit
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xf ${cur}/${tarball}||:
-	cd "$cur"
+	proot --link2symlink tar -xf "${cur}"/${tarball}||:
+	cd "$cur" || exit
 fi
 mkdir -p kali-binds
 bin=start-kali.sh
@@ -48,6 +52,7 @@ if [ -n "\$(ls -A kali-binds)" ]; then
 fi
 command+=" -b /dev"
 command+=" -b /proc"
+command+=" -b kali-fs/tmp:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -71,4 +76,6 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "removing image for some space"
+rm $tarball
 echo "You can now launch Kali with the ./${bin} script"

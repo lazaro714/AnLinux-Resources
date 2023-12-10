@@ -15,7 +15,11 @@ if [ "$first" != 1 ];then
 			archurl="armhf" ;;
 		amd64)
 			archurl="amd64" ;;
+		x86_64)
+			archurl="amd64" ;;	
 		i*86)
+			archurl="i386" ;;
+		x86)
 			archurl="i386" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
@@ -29,7 +33,7 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
-mkdir -p binds
+mkdir -p ubuntu-binds
 bin=start-ubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -41,13 +45,14 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
-    for f in binds/* ;do
+if [ -n "\$(ls -A ubuntu-binds)" ]; then
+    for f in ubuntu-binds/* ;do
       . \$f
     done
 fi
 command+=" -b /dev"
 command+=" -b /proc"
+command+=" -b ubuntu-fs/tmp:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -71,4 +76,6 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "removing image for some space"
+rm $tarball
 echo "You can now launch Ubuntu with the ./${bin} script"

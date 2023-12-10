@@ -11,10 +11,12 @@ if [ "$first" != 1 ];then
 		case `dpkg --print-architecture` in
 		amd64)
 			archurl="x86_64" ;;
+		x86_64)
+			archurl="x86_64" ;;	
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "http://mirrors.evowise.com/archlinux/iso/2018.10.01/archlinux-bootstrap-2018.10.01-${archurl}.tar.gz" -O $tarball
+		wget "http://mirrors.evowise.com/archlinux/iso/2019.01.01/archlinux-bootstrap-2019.01.01-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -24,6 +26,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p arch-binds
+mkdir -p arch-fs/tmp
 bin=start-arch.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -42,6 +45,7 @@ if [ -n "\$(ls -A arch-binds)" ]; then
 fi
 command+=" -b /dev"
 command+=" -b /proc"
+command+=" -b arch-fs/tmp:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -65,6 +69,8 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "removing image for some space"
+rm $tarball
 echo "You can now launch Arch Linux with the ./${bin} script"
 echo "Preparing additional component for the first time, please wait..."
 wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/resolv.conf" -P arch-fs/root

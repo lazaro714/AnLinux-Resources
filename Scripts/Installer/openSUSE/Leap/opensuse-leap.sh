@@ -13,6 +13,8 @@ if [ "$first" != 1 ];then
 			archurl="arm64" ;;
 		amd64)
 			archurl="amd64" ;;
+		x86_64)
+			archurl="amd64" ;;	
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
@@ -49,6 +51,7 @@ if [ -n "\$(ls -A opensuse-leap-binds)" ]; then
 fi
 command+=" -b /dev"
 command+=" -b /proc"
+command+=" -b opensuse-leap-fs/tmp:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -72,4 +75,6 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "removing image for some space"
+rm $tarball
 echo "You can now launch openSUSE Leap with the ./${bin} script"
