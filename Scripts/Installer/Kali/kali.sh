@@ -8,7 +8,7 @@ tarball="kali-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
-		case `dpkg --print-architecture` in
+		case $(dpkg --print-architecture) in
 		aarch64)
 			archurl="arm64" ;;
 		arm)
@@ -26,12 +26,12 @@ if [ "$first" != 1 ];then
 		esac
 		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/${archurl}/kali-rootfs-${archurl}.tar.gz" -O $tarball
 	fi
-	cur=`pwd`
+	cur=$(pwd)
 	mkdir -p "$folder"
-	cd "$folder"
+	cd "$folder" || exit
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xf ${cur}/${tarball}||:
-	cd "$cur"
+	proot --link2symlink tar -xf "${cur}"/${tarball}||:
+	cd "$cur" || exit
 fi
 mkdir -p kali-binds
 bin=start-kali.sh
